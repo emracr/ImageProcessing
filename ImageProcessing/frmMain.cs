@@ -218,13 +218,13 @@ namespace ImageProcessing
             else if (cbFilters.SelectedIndex == 23)
             {
                 Bitmap image = new Bitmap(pbImageSource.Image);
-                Bitmap tasima = Tasima(image);
+                Bitmap tasima = MoveOperation(image);
                 filteredImage = tasima;
             }
             else if (cbFilters.SelectedIndex == 24)
             {
                 Bitmap image = new Bitmap(pbImageSource.Image);
-                Bitmap resim = Kucultme_InterpolasyonMetodu(image);
+                Bitmap resim = Reduction(image);
                 filteredImage = resim;
             }
             else
@@ -1627,7 +1627,7 @@ namespace ImageProcessing
             return pencilDraw;
         }
 
-        public Bitmap Tasima(Bitmap image)
+        public Bitmap MoveOperation(Bitmap image)
         {
             Color color;
             Bitmap buffer = new Bitmap(image.Width, image.Height);
@@ -1651,50 +1651,49 @@ namespace ImageProcessing
             return buffer;
         }
 
-        public Bitmap Kucultme_InterpolasyonMetodu(Bitmap image)
+        public Bitmap Reduction(Bitmap image)
         {
-            Color OkunanRenk, DonusenRenk;
-            Bitmap GirisResmi, CikisResmi;
+            Bitmap buffer = new Bitmap(image.Width, image.Height);
+
             int R = 0, G = 0, B = 0;
-            GirisResmi = image;
-            int ResimGenisligi = GirisResmi.Width; //GirisResmi global tanımlandı.
-            int ResimYuksekligi = GirisResmi.Height;
-            CikisResmi = new Bitmap(ResimGenisligi, ResimYuksekligi); //Cikis resminin boyutları
-            int x2 = 0, y2 = 0; //Çıkış resminin x ve y si olacak.
-            int KucultmeKatsayisi = 2;
-            for (int x1 = 0; x1 < ResimGenisligi; x1 = x1 + KucultmeKatsayisi)
+
+            int x = 0, y = 0; //Çıkış resminin x ve y si olacak.
+
+            int reductionCoefficient = 2;
+
+            for (int x1 = 0; x1 < image.Width; x1 = x1 + reductionCoefficient)
             {
-                y2 = 0;
-                for (int y1 = 0; y1 < ResimYuksekligi; y1 = y1 + KucultmeKatsayisi)
+                y = 0;
+                for (int y1 = 0; y1 < image.Height; y1 = y1 + reductionCoefficient)
                 {
                     //x ve y de ilerlerken her atlanan pikselleri okuyacak ve ortalama değerini alacak.
                     R = 0; G = 0; B = 0;
                     try //resim sınırının dışına çıkaldığında hata vermesin diye
                     {
-                        for (int i = 0; i < KucultmeKatsayisi; i++)
+                        for (int i = 0; i < reductionCoefficient; i++)
                         {
-                            for (int j = 0; j < KucultmeKatsayisi; j++)
+                            for (int j = 0; j < reductionCoefficient; j++)
                             {
-                                OkunanRenk = GirisResmi.GetPixel(x1 + i, y1 + j);
-                                R = R + OkunanRenk.R;
-                                G = G + OkunanRenk.G;
-                                B = B + OkunanRenk.B;
+                                Color color = image.GetPixel(x1 + i, y1 + j);
+                                R = R + color.R;
+                                G = G + color.G;
+                                B = B + color.B;
 
                             }
                         }
                     }
                     catch { }
                     //Renk kanallarının ortalamasını alıyor
-                    R = R / (KucultmeKatsayisi * KucultmeKatsayisi);
-                    G = G / (KucultmeKatsayisi * KucultmeKatsayisi);
-                    B = B / (KucultmeKatsayisi * KucultmeKatsayisi);
-                    DonusenRenk = Color.FromArgb(R, G, B);
-                    CikisResmi.SetPixel(x2, y2, DonusenRenk);
-                    y2++;
+                    R = R / (reductionCoefficient * reductionCoefficient);
+                    G = G / (reductionCoefficient * reductionCoefficient);
+                    B = B / (reductionCoefficient * reductionCoefficient);
+                    Color color2 = Color.FromArgb(R, G, B);
+                    buffer.SetPixel(x, y, color2);
+                    y++;
                 }
-                x2++;
+                x++;
             }
-            return CikisResmi;
+            return buffer;
         }
     }
 }

@@ -22,10 +22,10 @@
 | --- | --- |
 | ![Laplacian Filter](https://github.com/user-attachments/assets/861937e3-1943-446b-b41b-3d761e83440a) | ![Prewitt Filter](https://github.com/user-attachments/assets/3a76c8ca-f24d-4f7d-b384-68696ba541ce) |
 
-| Mirroring Filter | Brightness Filter |
+| Mirroring | Brightness |
 | --- | --- |
-| ![Mirroring Filter](https://github.com/user-attachments/assets/062f6dad-5b10-4bf6-9f48-8c607ffba0d9) | ![Brightness Filter](https://github.com/user-attachments/assets/3496bf94-dc8f-41b9-acd3-559657b069e7) |
+| ![Mirroring](https://github.com/user-attachments/assets/062f6dad-5b10-4bf6-9f48-8c607ffba0d9) | ![Brightness](https://github.com/user-attachments/assets/3496bf94-dc8f-41b9-acd3-559657b069e7) |
 
-| Contrast Filter | Rotation |
+| Contrast | Rotation |
 | --- | --- |
-| ![Contrast Filter](https://github.com/user-attachments/assets/7cb6bd5e-996a-4239-bf90-ab6062b87fba) | ![Rotation](https://github.com/user-attachments/assets/30479154-489c-4266-ab0c-63ca317be1cb) |
+| ![Contrast ](https://github.com/user-attachments/assets/7cb6bd5e-996a-4239-bf90-ab6062b87fba) | ![Rotation](https://github.com/user-attachments/assets/30479154-489c-4266-ab0c-63ca317be1cb) |

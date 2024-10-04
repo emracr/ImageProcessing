@@ -1,3 +1,16 @@
+<h1 align="center">Image Processing</h1>
+
+<p>Platform: <b>Desktop</b></p>
+<p>Backend: <b>Windows Form</b></p>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left" witdh="320" height="320">
+  <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&amp;logo=c-sharp&amp;logoColor=white" alt="C#"> 
+  <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&amp;logo=.net&amp;logoColor=white" alt=".Net"> 
+</p>
+
+<h3 align="left">Project Images</h3>
+
 | Black White Filter | Negative Filter |
 | --- | --- |
 | ![Black White Filter](https://github.com/user-attachments/assets/6af287e9-8214-4cb9-b025-3994d2a7a09d) | ![Negative Filter](https://github.com/user-attachments/assets/4660653c-9026-4ded-a55c-daf11b1c5ec6) |
